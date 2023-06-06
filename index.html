@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Confeitaria Uni-Nine</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Montserrat', sans-serif;
+			background-color: #FDFDFD;
+			color: #555;
+			font-size: 18px;
+			line-height: 1.5;
+			text-align: center;
+		}
+
+		header {
+			background-color: #F6C9B9;
+			padding: 50px 0;
+			color: #fff;
+			text-shadow: 2px 2px #D9967F;
+		}
+
+		h1 {
+			font-size: 48px;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+
+		main {
+			padding: 40px;
+		}
+
+		img {
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+		}
+
+		h2 {
+			margin-top: 40px;
+			font-size: 36px;
+			font-weight: bold;
+			color: #F6C9B9;
+			text-shadow: 2px 2px #D9967F;
+		}
+
+		p {
+			margin-top: 20px;
+			font-size: 24px;
+			color: #555;
+			line-height: 1.5;
+		}
+
+		button {
+			display: inline-block;
+			margin-top: 40px;
+			padding: 20px 40px;
+			background-color: #F6C9B9;
+			border: none;
+			border-radius: 50px;
+			color: #fff;
+			font-size: 24px;
+			font-weight: bold;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			cursor: pointer;
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+			transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+		}
+
+		button:hover {
+			background-color: #EBA18D;
+			transform: translateY(-5px);
+			box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+		}
+
+		button a {
+			color: #fff;
+			text-decoration: none;
+		}
+
+		.form-container {
+			margin-top: 40px;
+		}
+
+		.form-group {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+
+		.form-group label {
+			font-weight: bold;
+			margin-right: 10px;
+		}
+
+		.form-group input[type="text"],
+		.form-group input[type="email"] {
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+		}
+
+		.table-container {
+			margin-top: 40px;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 
+20px;
+}
+	table th,
+	table td {
+		padding: 10px;
+		border: 1px solid #ccc;
+	}
+
+	table th {
+		background-color: #F6C9B9;
+		color: #fff;
+		font-weight: bold;
+	}
+
+	table tr:nth-child(even) {
+		background-color: #FDFDFD;
+	}
+</style>
+</head>
+<body>
+<header>
+	<h1>Deixe suas sobremesas ainda mais especiais com nossas receitas deliciosas!</h1>
+</header>
+<main>
+	<section>
+		<img src="logo.JPEG" alt="Sobremesas deliciosas">
+		<h2>Confeitaria Uni-Nine</h2>
+		<p>Oferecemos uma variedade de receitas deliciosas para todos os gostos, desde sobremesas clássicas até sobremesas gourmet que irão impressionar seus amigos e familiares.</p>
+		<p>Experimente nossas receitas fáceis de seguir e crie sobremesas incríveis em casa. Nossas receitas são testadas e aprovadas para garantir o melhor resultado.</p>
+		<button><a href="prototipação.html">Experimente Aqui</a></button>
+		<p>Tenha uma ótima experiência com nossas receitas e uma bela sobremesa para seus convidados!</p>
+	<div class="form-container">
+		<h2>Cadastre-se para receber nossas novidades</h2>
+		<form id="cadastro-form">
+			<div class="form-group">
+				<label for="name">Nome:</label>
+				<input type="text" id="name" placeholder="Seu nome" required>
+			</div>
+			<div class="form-group">
+				<label for="email">Email:</label>
+				<input type="email" id="email" placeholder="Seu email" required>
+			</div>
+			<button type="submit">Cadastrar</button>
+		</form>
+	</div>
+
+	<div class="table-container">
+		<h2>Cadastros realizados</h2>
+		<table id="cadastros-table">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Os cadastros serão exibidos aqui -->
+			</tbody>
+		</table>
+	</div>
+</section>
+</main>
+<script>
+	const form = document.getElementById('cadastro-form');
+	const tableBody = document.querySelector('#cadastros-table tbody');
+
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
+		const nameInput = document.getElementById('name');
+		const emailInput = document.getElementById('email');
+		const name = nameInput.value.trim();
+		const email = emailInput.value.trim();
+
+		if (name === '' || email === '') {
+			alert('Por favor, preencha todos os campos do formulário.');
+			return;
+		}
+
+		const newRow = document.createElement('tr');
+		newRow.innerHTML = `
+			<td>${name}</td>
+			<td>${email}</td>
+		`;
+		tableBody.appendChild(newRow);
+
+		// Limpa os campos do formulário
+		nameInput.value = '';
+		emailInput.value = '';
+	});
+</script>
+</body>
+</html>

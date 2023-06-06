@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniNine</title>
+    <style>
+        /* Estilos globais */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FDFDFD;
+            color: #555;
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* Estilos para a barra de navegação */
+        nav {
+            background-color: #FDFDFD;
+            padding: 10px;
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente os itens */
+            align-items: center;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between; /* Distribui igualmente o espaço horizontalmente */
+            width: 100%; /* Ocupa 100% da largura disponível */
+        }
+
+        li {
+            background-color: #F6C9B9;
+            padding: 20px;
+            margin: 0 10px; /* Define margens laterais de 10 pixels */
+            color: #fff;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 2px 2px #D9967F;
+            border-radius: 10px;
+            flex: 1; /* Distribui igualmente o espaço disponível entre os itens */
+        }
+
+        /* Estilos para os títulos */
+        h1 {
+            margin-top: 40px;
+            font-size: 48px;
+            font-weight: bold;
+            color: #555;
+            text-shadow: 2px 2px #D9967F;
+        }
+
+        /* Estilos para os botões */
+        button {
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 2px 2px #D9967F;
+            background-color: #F6C9B9;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #D9967F;
+        }
+
+        /* Estilos para os links */
+        a {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #555;
+            text-decoration: none;
+            line-height: 1.5;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilos para a área de comentários */
+        .comments {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #F6C9B9;
+            color: #fff;
+            text-align: left;
+            border-radius: 10px;
+        }
+
+        .comments input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .comments input[type="submit"] {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comments input[type="submit"]:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+<div class="search-section">
+    <h2>Pesquisar Receitas</h2>
+    <form id="search-form" action="batatagratinada.html""escondidinho.html""arroz.html""lasanha.html""panqueca.html""bolodefuba.html""mandioca.html""chocolate.html""churros.html""cenoura.html""frango.html""mousse.html""pave.html""pudim.html""manjar.html">
+        <input type="text" name="recipe-name" placeholder="Digite o nome da receita">
+        <input type="submit" value="Pesquisar">
+    </form>
+</div>
+<nav>
+    <ul>
+        <li>
+            <button><a href="listadecomidas.html">Comidas</a></button>
+        </li>
+        <li>
+            <button><a href="listadebolos.html">Bolos da vovó</a></button>
+        </li>
+        <li>
+            <button><a href="listadesobremesa.html">Sobremesa</a></button>
+        </li>
+    </ul>
+</nav>
+
+<div class="comments">
+    <h2>Deixe seu comentário</h2>
+    <form id="comment-form">
+        <input type="text" id="comment-name" placeholder="Digite seu nome">
+        <input type="text" id="comment-text" placeholder="Digite seu comentário">
+        <input type="submit" value="Enviar Comentário">
+    </form>
+<div class="comment-list" id="comment-list">
+        <!-- Aqui serão exibidos os comentários -->
+    </div>
+</div>
+<script>
+    // Função para adicionar um comentário
+    function addComment() {
+        var nameInput = document.getElementById("comment-name");
+        var textInput = document.getElementById("comment-text");
+
+        var name = nameInput.value;
+        var text = textInput.value;
+
+        if (name && text) {
+            var commentItem = document.createElement("div");
+            commentItem.className = "comment-item";
+
+            var commentName = document.createElement("p");
+            commentName.className = "comment-name";
+            commentName.innerText = name;
+
+            var commentText = document.createElement("p");
+            commentText.className = "comment-text";
+            commentText.innerText = text;
+
+            commentItem.appendChild(commentName);
+            commentItem.appendChild(commentText);
+
+            var commentList = document.getElementById("comment-list");
+            commentList.appendChild(commentItem);
+
+            // Limpar os campos de entrada
+            nameInput.value = "";
+            textInput.value = "";
+        }
+    }
+
+    // Capturar o evento de envio do formulário
+    var commentForm = document.getElementById("comment-form");
+    commentForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        addComment();
+    });
+</script>
+</body>
+</html>
